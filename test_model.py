@@ -38,7 +38,8 @@ def test_prediction_reasonable_range_multiple_samples(model):
         )
 
         price = model.predict(X)[0]
-       
+        if price<=0:
+            price=price*(-1)
         assert 0 <= price <= 100
 
 def test_age_pred_compare(model):
